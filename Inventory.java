@@ -1,14 +1,14 @@
 //1.Implement the concept of control statements and array in the list
 //2.Implement the concept of class,data members,member functions and access specifier.
 import java.util.*;
-//Class Product
-public class Inventory {
+
+public class Inventory {											//Class Product
 	static String invnName="HUL Inventory System";
 	int productId;
 	String productName;
 	int priceList;
-	//Member functions
-	public Inventory(int productId, String productName, int priceList){
+	
+	public Inventory(int productId, String productName, int priceList){					//Member functions
 		this.productId=productId;
 		this.productName=productName;
 		this.priceList=priceList;
@@ -16,11 +16,11 @@ public class Inventory {
 	
 	public void getProduct(){
 		if(priceList<=100)
-			System.out.println("The price of the "+productName+ " is:"+priceList);
+			System.out.println("This Product "+productName+ "comes under Category A whose price is:"+priceList);
 		else if(priceList>100 && priceList<=500)
-			System.out.println("The price of the "+productName+ " is:"+priceList);
+			System.out.println("This Product "+productName+ "comes under Category B whose price is:"+priceList);
 		else
-			System.out.println("The price of the "+productName+ " is:"+priceList);
+			System.out.println("This Product "+productName+ "comes under Category C whose price is:"+priceList);
 	}
 	
 	//Access Specifier
@@ -59,7 +59,7 @@ public class Inventory {
 		
 		for(int i=0;i<items;i++){
 			Inventory inven=new Inventory(prodId[i],prodName[i],price[i]);							//Array of objects
-			inven.getProduct();																	//Calling function
+			inven.getProduct();												//Calling function
 		}
 		
 	}
