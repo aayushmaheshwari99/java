@@ -28,7 +28,7 @@ public class Inventory {											//Class Inventory
 		Inventory.priceList = priceList;
 	}
 
-	public void search(int productId){									//function overloading
+	public void search(int productId){									//function
 		if(productId>=01 && productId<=10)
 			System.out.println("Products ranging from 01 to 10 comes under Food category");
 		else if(productId>=11 && productId<=20)
@@ -40,12 +40,11 @@ public class Inventory {											//Class Inventory
 		
 	public void search(){												//function overloading
 		if(priceList<=100)
-			System.out.println(productName+ "comes under Cheap products, whose price is:"+priceList);
+			System.out.println(productId+" No discount is allowed\n The price of "+productName+"is: "+priceList);
 		else if(priceList>100 && priceList<=500)
-			System.out.println(productName+ "comes under Affordable products, whose price is:"+priceList);
+			System.out.println(productId+" 10% discount is allowed\n The price of "+productName+"is:"+priceList);
 		else
-			System.out.println(productName+ "comes under Expensive products, whose price is:"+priceList);
-	}
+			System.out.println(productId+" 20% discount is allowed\n The price of "+productName+"is:"+priceList);	}
 
 	
 	//Access Specifier
