@@ -1,47 +1,74 @@
-//1.Implement the concept of control statements and array in the list
-//2.Implement the concept of class,data members,member functions and access specifier.
 import java.util.*;
+public class Inventory {											//Class Inventory
+	static int productId;
+	static String productName;
+	static int priceList;
+		
+	static class name{												//static class
+													
+			static String invtName;									//static variable
+			
+			static{													//static block
+				invtName="HUL Inventory System";
+			}
+			static String display(){								//static function
+				return invtName;
+				
+			}
+		}	
 
-public class Inventory {											//Class Product
-	static String invnName="HUL Inventory System";
-	int productId;
-	String productName;
-	int priceList;
-	
-	public Inventory(int productId, String productName, int priceList){					//Member functions
-		this.productId=productId;
-		this.productName=productName;
-		this.priceList=priceList;
+	public Inventory(int productId) { 								// constructor  
+		Inventory.productId = productId;
+
 	}
-	
-	public void getProduct(){
+
+	public Inventory(int productId, String productName, int priceList) { // constructor overloading
+		Inventory.productId = productId;
+		Inventory.productName = productName;
+		Inventory.priceList = priceList;
+	}
+
+	public void search(int productId){									//function overloading
+		if(productId>=01 && productId<=10)
+			System.out.println("Products ranging from 01 to 10 comes under Food category");
+		else if(productId>=11 && productId<=20)
+			System.out.println("Products ranging from 11 to 20 comes under Beverages category");
+		else if(productId>=21 && productId<=30)
+			System.out.println("Products ranging from 21 to 30 comes under Cosmetics category");
+	}
+
+		
+	public void search(){												//function overloading
 		if(priceList<=100)
-			System.out.println("This Product "+productName+ "comes under Category A whose price is:"+priceList);
+			System.out.println(productName+ "comes under Cheap products, whose price is:"+priceList);
 		else if(priceList>100 && priceList<=500)
-			System.out.println("This Product "+productName+ "comes under Category B whose price is:"+priceList);
+			System.out.println(productName+ "comes under Affordable products, whose price is:"+priceList);
 		else
-			System.out.println("This Product "+productName+ "comes under Category C whose price is:"+priceList);
+			System.out.println(productName+ "comes under Expensive products, whose price is:"+priceList);
 	}
+
 	
 	//Access Specifier
-	public static void main(String args[]){
+	public static void main(String args[])
+	{
+
 		//Data Members
-		//Initialising Array
+		//Initializing Array
 		int prodId[];
 		int items;
 		int price[];
 		String prodName[];
-		int c=1;
 		Scanner st=new Scanner(System.in);
-		System.out.println("Welcome to " + invnName);
+		System.out.println("Welcome to " +Inventory.name.display());						//calling the static class
 		System.out.println("How many products you have in the store?");
 		items=st.nextInt();
 		prodId=new int[items];
 		prodName= new String[items];
 		price=new int[items];
 		//Using for-loop and if statement as control statement
-		for(int i=0;i<items;i++){                                                         
-			prodId[i]=c++;
+		for(int i=0;i<items;i++){
+			System.out.println("Enter the ProductID");                                                       
+			prodId[i]=st.nextInt();
 			System.out.println("Enter the name of the item "+(i+1));
 			prodName[i]=st.next();
 			System.out.println("Enter the price of the "+prodName[i]);
@@ -58,9 +85,15 @@ public class Inventory {											//Class Product
 		}
 		
 		for(int i=0;i<items;i++){
-			Inventory inven=new Inventory(prodId[i],prodName[i],price[i]);							//Array of objects
-			inven.getProduct();												//Calling function
-		}
+			Inventory inv=new Inventory(prodId[i],prodName[i],price[i]);		//calling the constructor
+			inv.search();														//Calling function
+			Inventory inv1=new Inventory(prodId[i]);							//calling the constructor
+			inv1.search(prodId[i]);												//Calling function
+		
 		
 	}
+	st.close();
+	}
 }
+
+
