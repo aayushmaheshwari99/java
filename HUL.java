@@ -62,7 +62,7 @@ public class HUL
 { 
 	public static void main(String[] args) 
     {  
-        String name="HULFoodDepartMent";                                            //String class
+        String name="HULFoodDepartMent";                                            //String class and command line argument
         System.out.println(name);
 		// creating Coffee object 
 		HULFoodDept s1 = new Coffee("Nestle"); 
